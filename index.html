@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Faysal Ahmed – Student</title>
+<meta name="description" content="Portfolio of Faysal Ahmed: a dedicated student focused on learning, discipline and building a bright future.">
+<meta name="theme-color" content="#121110">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<!-- Social share preview (WhatsApp, Facebook, X, LinkedIn) — deploy করার পর og:url আর og:image এ নিজের ঠিকানা বসান -->
+<meta property="og:title" content="Faysal Ahmed – Student">
+<meta property="og:description" content="Portfolio of Faysal Ahmed: a dedicated student focused on learning, discipline and building a bright future.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://my-website.netlify.app/assets/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Faysal Ahmed – Student">
+<meta name="twitter:description" content="Portfolio of Faysal Ahmed: a dedicated student focused on learning, discipline and building a bright future.">
+<meta name="twitter:image" content="https://my-website.netlify.app/assets/og-image.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- Google Fonts load without blocking the first paint. If they are slow or fail, the site shows with fallback fonts. -->
+<link id="gf" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+<noscript><link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet"><style>#loader{display:none!important}</style></noscript>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="terminal.css">
+</head>
+<body>
+<!-- 3D "Let's Connect" goo button: Venom Button by exteestudio (MIT), see collab/LICENSE -->
+
+<!-- loader: portrait + ring + progress. The lifecycle script right below decides when the site is ready. -->
+<div id="loader" role="status" aria-live="polite">
+  <div class="ld-glow" aria-hidden="true"></div>
+  <div class="ld-stage" aria-hidden="true">
+    <i class="ld-line l"></i><i class="ld-line r"></i>
+    <div class="ld-ring"></div>
+    <svg class="ld-ma" viewBox="0 0 202 120" focusable="false">
+      <defs><filter id="ldb" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="5"/></filter></defs>
+      <g class="ld-halo" filter="url(#ldb)"><path d="M82 21H34V99"/><path d="M34 55H74"/><path d="M112 99L146 21L180 99M123 75H169"/></g>
+      <g class="ld-base"><path pathLength="100" d="M82 21H34V99"/><path pathLength="100" d="M34 55H74"/><path pathLength="100" d="M112 99L146 21L180 99M123 75H169"/></g>
+      <g class="ld-lit"><path pathLength="100" d="M82 21H34V99"/><path pathLength="100" d="M34 55H74"/><path pathLength="100" d="M112 99L146 21L180 99M123 75H169"/></g>
+    </svg>
+  </div>
+  <div class="ld-foot"><div class="ld-bar"><i></i></div><span class="ld-label">Loading</span></div>
+</div>
+<script>
+/* loader lifecycle. Waits only for what the first screen needs, each with its own time limit.
+   Edit the three numbers below if you ever want to tune it (milliseconds). */
+(function () {
+  var MIN_FIRST = 1500, MIN_REPEAT = 450, MAX = 6000;
+  var d = document, L = d.getElementById('loader'), done = 0, total = 4, revealed = false, t0 = performance.now();
+  var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches, seen = false;
+  try { seen = sessionStorage.getItem('ma-seen') === '1'; } catch (e) {}
+  if (seen) L.classList.add('quick');                    /* already seen this session (refresh): short version */
+  var MIN = reduce ? 350 : seen ? MIN_REPEAT : MIN_FIRST;
+  var bar = L.querySelector('.ld-bar i'), label = L.querySelector('.ld-label');
+  var resolveRev, resolveDone, revealedP = new Promise(function (r) { resolveRev = r; }), doneP = new Promise(function (r) { resolveDone = r; });
+  var wait = function (ms) { return new Promise(function (r) { setTimeout(r, ms); }); };
+  var domReady = d.readyState !== 'loading' ? Promise.resolve() : new Promise(function (r) { d.addEventListener('DOMContentLoaded', r, { once: true }); });
+  var appResolve, appP = new Promise(function (r) { appResolve = r; });
+
+  function step() {                                      /* one real task finished: move the line */
+    done++; bar.style.transform = 'scaleX(' + (done / total) + ')'; check();
+  }
+  function track(p, cap) {                               /* every task has its own time limit, success or failure counts as finished */
+    var fin = false, f = function () { if (!fin) { fin = true; step(); } };
+    Promise.race([Promise.resolve(p).catch(function () {}), wait(cap)]).then(f);
+  }
+  function check() {
+    if (revealed || done < total) return;
+    var left = MIN - (performance.now() - t0);
+    left > 0 ? setTimeout(reveal, left) : reveal();
+  }
+  function reveal() {
+    if (revealed) return; revealed = true;
+    bar.style.transform = 'scaleX(1)'; label.textContent = 'Ready';
+    try { sessionStorage.setItem('ma-seen', '1'); } catch (e) {}
+    var main = d.getElementById('top'), nav = d.getElementById('nav');
+    L.classList.add('leave'); main.classList.add('site-in'); nav.classList.add('fade-in');
+    resolveRev();
+    setTimeout(function () { main.classList.remove('site-in'); nav.classList.remove('fade-in'); }, 1300);
+    setTimeout(function () { L.remove(); resolveDone(); }, reduce ? 0 : 950);
+  }
+
+  /* 1. page structure is ready */
+  track(domReady, MAX);
+  /* 2. fonts: stylesheet settled (loaded or failed), then Geist for headlines. Max 1.5 s, never blocks longer */
+  track(domReady.then(function () {
+    var gf = d.getElementById('gf');
+    var sheet = new Promise(function (r) {
+      if (!gf || gf.sheet) return r();
+      gf.addEventListener('load', r); gf.addEventListener('error', r);
+    });
+    return sheet.then(function () { return d.fonts && d.fonts.load ? d.fonts.load('600 64px Geist') : null; });
+  }), 1500);
+  /* 3. the ID card photo in the first screen (other images are lazy and never awaited). Max 3 s */
+  track(domReady.then(function () {
+    var img = d.getElementById('card-photo');
+    if (!img || (img.complete && img.naturalWidth)) return;
+    return new Promise(function (r) { img.addEventListener('load', r); img.addEventListener('error', r); });
+  }), 3000);
+  /* 4. script.js has started (cards, effects and content are built) */
+  track(appP, MAX - 500);
+  /* recovery: whatever happens, the loader leaves at MAX */
+  setTimeout(reveal, MAX);
+
+  window.MALoader = { app: appResolve, revealed: revealedP, done: doneP };
+})();
+</script>
+<div id="progress" aria-hidden="true"></div>
+
+<header id="nav">
+  <a class="brand" href="#top" data-c="name"></a>
+  <nav>
+    <a href="#work">Projects</a>
+    <a href="#process">Process</a>
+    <a href="#journey">Journey</a>
+    <a href="#business">Business</a><a href="#about">About</a>
+    <a class="btn-cream" href="#contact">Let’s talk</a>
+  </nav>
+</header>
+
+<main id="top">
+  <noscript><p style="padding:120px 24px">Please turn on JavaScript to see this portfolio.</p></noscript>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="wrap hero-grid">
+      <div class="hero-copy">
+        <span class="badge"><i></i>Student · Learning every day</span>
+        <h1 data-c="name"></h1>
+        <p class="tagline" data-c="tagline"></p>
+        <div class="cta-row">
+          <a class="btn-cream" href="#work">See my projects</a>
+          <a class="btn-ghost" href="#contact">Get in touch</a>
+        </div>
+        <ul class="tools" id="tools" aria-label="Tools"></ul>
+      </div>
+
+      <!-- STUDENT PASS (lanyard hangs from the top edge) -->
+      <div id="lanyard" aria-label="Hanging student pass. Drag it.">
+        <svg id="strap" aria-hidden="true">
+          <defs><path id="strap-path" d="M0 0"/></defs>
+          <path id="strap-line" fill="none" stroke-linecap="round"/>
+          <text id="strap-text"><textPath href="#strap-path" id="strap-tp" startOffset="0"></textPath></text>
+        </svg>
+        <div id="card">
+          <div class="clip" aria-hidden="true"><span></span></div>
+          <div class="card-top"><span>STUDENT PASS</span><span class="rec">● 2026</span></div>
+          <div class="photo"><img id="card-photo" src="assets/me-front.webp" alt="Student pass of Faysal Ahmed" width="400" height="400" draggable="false"><i class="c tl"></i><i class="c tr"></i><i class="c bl"></i><i class="c br"></i></div>
+          <div class="card-role" data-c="role"></div>
+          <div class="card-name" data-c="name"></div>
+          <div class="card-meta"><span id="card-id"></span><span class="barcode" aria-hidden="true"></span></div>
+        </div>
+        <div class="grab">GRAB THE CARD ↑</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS STRIP -->
+  <div class="strip" aria-label="Skills"><div class="strip-track" id="strip"></div></div>
+
+  <!-- QUOTE -->
+  <section id="quote" class="sec quote-sec">
+    <div class="wrap">
+      <p class="q-mark" aria-hidden="true">"</p>
+      <p class="q-text">Success is the sum of small efforts, repeated day in and day out.</p>
+      <p class="q-author">— ROBERT COLLIER</p>
+    </div>
+  </section>
+
+  <!-- 01 PROJECTS -->
+  <section id="work" class="sec">
+    <div class="wrap">
+      <p class="label">01 — Selected projects</p>
+      <h2>Things I’m building.</h2>
+      <div class="rail-head">
+        <p class="muted" data-c="projectsNote"></p>
+        <div class="arrows"><button id="prev" aria-label="Previous">←</button><button id="next" aria-label="Next">→</button></div>
+      </div>
+      <div class="rail" id="rail"></div>
+    </div>
+  </section>
+
+  <!-- 02 PROCESS -->
+  <section id="process" class="sec">
+    <div class="wrap">
+      <p class="label">02 — Process</p>
+      <h2>How an idea becomes a project.</h2>
+      <div class="timeline" id="timeline" aria-hidden="true">
+        <div class="tl-ruler"></div>
+        <div class="tl-track"><b>STUDY</b><span style="--l:4%;--w:30%"></span><span style="--l:40%;--w:22%"></span><span style="--l:68%;--w:26%"></span></div>
+        <div class="tl-track"><b>REVISE</b><span style="--l:0%;--w:18%"></span><span style="--l:22%;--w:36%"></span><span style="--l:64%;--w:30%"></span></div>
+        <div class="tl-track"><b>PRACTICE</b><span style="--l:10%;--w:26%"></span><span style="--l:46%;--w:20%"></span><span style="--l:72%;--w:22%"></span></div>
+        <div class="tl-track"><b>REVIEW</b><span style="--l:30%;--w:24%"></span><span style="--l:58%;--w:36%"></span></div>
+        <div class="playhead"></div>
+      </div>
+      <ol class="steps" id="steps"></ol>
+    </div>
+  </section>
+
+  <!-- 03 JOURNEY -->
+  <section id="journey" class="sec">
+    <div class="wrap">
+      <p class="label">03 — Journey</p>
+      <h2>How it all started.</h2>
+      <ol class="journey" id="journey-list"></ol>
+    </div>
+  </section>
+
+  <!-- 04 FAMILY BUSINESS -->
+  <section id="business" class="sec">
+    <div class="wrap">
+      <p class="label">04 — Family business</p>
+      <h2>Built with family, run with pride.</h2>
+      <div class="biz-card">
+        <div class="biz-media"><img src="assets/business.webp" alt="Our family business" width="800" height="500" loading="lazy" draggable="false"></div>
+        <div class="biz-info">
+          <h3>Faysal Textile</h3>
+          <p>Our family proudly runs <b>Faysal Textile</b> — traditional Tangail saree. Growing up around it taught me responsibility, hard work and how things work in the real world.</p>
+          <p class="j-link"><a href="https://sareemart.storeline.io/" target="_blank" rel="noopener noreferrer">Visit our store ↗</a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 05 ABOUT -->
+  <section id="about" class="sec">
+    <div class="wrap about-grid">
+      <div class="reveal-wrap">
+        <div id="reveal" aria-label="Photo. Move the cursor over it to reveal the hero version.">
+          <img class="r-base" src="assets/me-side.webp" alt="Portrait of Faysal Ahmed" width="800" height="1200" loading="lazy" draggable="false">
+          <img class="r-mask" src="assets/me-mask.webp" alt="" width="800" height="1200" loading="lazy" draggable="false">
+          <i class="r-ring" aria-hidden="true"></i>
+        </div>
+        <p class="grab">HOVER THE PHOTO</p>
+      </div>
+      <div class="about-copy">
+        <p class="label">05 — About</p>
+        <h2 data-c="aboutTitle"></h2>
+        <p class="body" data-c="about"></p>
+        <ul class="pills" id="strengths"></ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- 06 CONTACT -->
+  <section id="contact" class="sec">
+    <div class="wrap">
+      <div class="contact-card">
+        <p class="label dark">06 — Contact</p>
+        <h2 data-c="contactTitle"></h2>
+        <div class="rows">
+          <div class="row"><span>Email</span><a id="email-link" href="#"></a><button id="copy" type="button">Copy</button></div>
+          <div class="row"><span>Call</span><a id="call-link" href="#"></a></div>
+          <div class="row"><span>WhatsApp</span><a id="wa-link" href="#" target="_blank" rel="noopener noreferrer"></a></div>
+        </div>
+        <form id="feedback" name="feedback" method="POST" data-netlify="true" netlify-honeypot="company">
+          <input type="hidden" name="form-name" value="feedback">
+          <p class="fb-honey"><label>Leave this empty: <input name="company" tabindex="-1" autocomplete="off"></label></p>
+          <p class="fb-title">Have a question or feedback?</p>
+          <div class="fb-grid">
+            <input type="text" name="name" placeholder="Your name (optional)" maxlength="60" autocomplete="name">
+            <textarea name="message" required placeholder="Your message…" maxlength="1200" rows="3"></textarea>
+            <button type="submit" id="fb-send">Send</button>
+          </div>
+          <p class="fb-msg" role="status" hidden></p>
+        </form>
+        <ul class="socials" id="socials"></ul>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="wrap foot"><span id="foot"></span><span>Goo button by exteestudio (MIT)</span></footer>
+
+<!-- Floating goo button: real link + CSS fallback pill (3D iframe is added by script.js) -->
+<div id="goo">
+  <a id="goo-link" class="pill" href="#"><span id="goo-label"></span></a>
+</div>
+
+<!-- Cursor follower -->
+<div id="cur" aria-hidden="true"><i class="halo"></i><i class="ring"></i><i class="dot"></i></div>
+
+<script src="script.js" defer></script>
+<script src="terminal.js" defer></script>
+</body>
+</html>

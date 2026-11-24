@@ -1,0 +1,3 @@
+# Netlify configuration — Faysal Ahmed's portfolio (static site)
+[build]
+  publish = "."
